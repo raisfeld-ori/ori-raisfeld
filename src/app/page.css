@@ -1,0 +1,23 @@
+.hero{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_text{
+    text-align: center;
+    font-size: 3em;
+    text-shadow:
+    0 0 2px rgba(255, 255, 255, 0.8),
+    0 0 6px rgba(255, 255, 255, 0.6),
+    0 0 7px rgba(255, 255, 255, 0.4);
+}
+
+.menu{
+    background-color: rgba(21, 21, 21, 0.71);
+    position: fixed;
+    transition: transform 1s ease-out;
+    width: 100svw;
+}

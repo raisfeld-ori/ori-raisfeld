@@ -13,11 +13,9 @@ export default function Home() {
     "I'm a fullstack developer",
     "extra"
   ];
-  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const [part, set_part] = useState(-1);
   const [text, set_text] = useState("");
   const [started, set_started] = useState(false);
-
   useEffect(() => {
     setTimeout(() => {
       if (part == parts.length) {return}
@@ -65,6 +63,7 @@ export default function Home() {
       <main>
         <section className="hero">
           <h1 className="main_text">{text}</h1>
+          <div className="arrow">🡣</div>
         </section>
         <section className="hero">
         </section>  

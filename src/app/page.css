@@ -16,7 +16,7 @@
 }
 
 .menu{
-    background-color: rgba(21, 21, 21, 0.71);
+    background-color: black;
     position: fixed;
     transition: transform 1s ease-out;
     width: 100svw;

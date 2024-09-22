@@ -45,7 +45,7 @@ export default function Home() {
 
   return (
     <div className={"h-full overflow-x-hidden " + (started ? "overflow-y-auto" : "overflow-hidden")}>
-    <nav className="menu shadow-md" style={{transform: started ? "translateY(0)" : "translateY(-100%)"}}>
+    <nav className="menu border-white border-b-2" style={{transform: started ? "translateY(0)" : "translateY(-100%)"}}>
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">

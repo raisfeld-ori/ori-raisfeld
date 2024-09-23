@@ -21,6 +21,8 @@ export default function Home() {
   ]
   const [part, set_part] = useState(-1);
   const [text, set_text] = useState("");
+  const [date, set_data] = useState(2007);
+  const [show_text, set_show_text] = useState(false);
   const [started, set_started] = useState(false);
   
   useEffect(() => {
@@ -60,7 +62,7 @@ export default function Home() {
       y: "53svh",
       onComplete: () => {
         
-      },
+      }
     });
   }, []);
   return (
@@ -89,7 +91,13 @@ export default function Home() {
         <section className="hero timeline_start" style={{display: started ? "" : "none"}}>
           <h1 className="font-bold title">About me</h1>
           <div className="circle" id="circle"></div>
+          <div className="square" style={{display: show_text ? "" : "none"}}>
+            <h3 className="text-3xl text-black text-center">I was born</h3>
+            <p className="text-black text-center">fwohwfporjeegpjewiro</p>
+            <div className="triangle"></div>
+            </div>
           <div className="line"></div>
+          <h5 className="mt-5">{date}</h5>
         </section>
     </div>
   );

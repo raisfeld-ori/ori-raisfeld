@@ -48,6 +48,7 @@
     height: 4svh;
     width: 4svh;
     margin: 0.2em;
+    z-index: 2;
     background-color: white;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
@@ -57,6 +58,25 @@
     background-color: white;
     height: 1svh;
     margin-top: 50svh;
+}
+
+.square{
+    background-color: white;
+    height: 40svh;
+    width: 50svw;
+    position: absolute;
+    bottom: -60svh;
+    border-radius: 100px;
+    z-index: 1;
+}
+
+.triangle{
+    position: absolute;
+    transform: translate(15svw, 30svh);
+    z-index: 0;
+    border-right: 10svw solid transparent;
+    border-left: 10svw solid transparent;
+	border-top: 10svh solid white;
 }
 
 @keyframes bop {

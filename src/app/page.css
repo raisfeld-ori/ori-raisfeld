@@ -43,43 +43,80 @@
     0 0 7px rgba(255, 255, 255, 0.4);
 }
 
-.circle{
-    border-radius: 50%;
-    height: 4svh;
-    width: 4svh;
-    margin: 0.2em;
-    z-index: 2;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-}
-
-.line{
-    width: 100%;
-    background-color: white;
-    height: 1svh;
-    margin-top: 50svh;
-}
-
-.square{
-    background-color: white;
-    height: 40svh;
-    width: 50svw;
-    position: absolute;
-    bottom: -60svh;
-    border-radius: 100px;
-    z-index: 1;
-}
-
-.triangle{
-    position: absolute;
-    transform: translate(15svw, 30svh);
-    z-index: 0;
-    border-right: 10svw solid transparent;
-    border-left: 10svw solid transparent;
-	border-top: 10svh solid white;
-}
-
 @keyframes bop {
     0%{transform: translateY(0);}
     50%{transform: translateY(-10px);}
+}
+
+.falling{
+    width: 100%;
+    height: 200svh;
+}
+
+.falling_img{
+    height: 5em;
+    width: 5em;
+    position: absolute;
+}
+
+.location0{
+    height: 3em;
+    width: 3em;
+    left: 50svw;
+    bottom: -80svh;
+}
+
+.location1{
+    height: 3em;
+    width: 3em;
+    right: 10svw;
+}
+
+.location2{
+    height: 4em;
+    width: 4em;
+    bottom: -20svh;
+    left: 5svw;
+}
+
+.location3{
+    height: 6em;
+    width: 6em;
+    left: 30svw;
+    bottom: -60svh;
+}
+
+.location4{
+    height: 2em;
+    width: 2em;
+    left: 70svw;
+    bottom: -60svh;
+}
+
+.location5{
+    height: 5em;
+    width: 5em;
+    left: 45svw;
+    bottom: -20svh;
+}
+
+.location6{
+    height: 6em;
+    width: 6em;
+    left: 10svw;
+    bottom: -90svh;
+}
+
+.location7{
+    height: 6em;
+    width: 6em;
+    right: 5svw;
+    bottom: -90svh;
+}
+
+.line{
+    width: 5px;
+    height: 1em;
+    background-color: rgba(255, 255, 255, 0.422);
+    position: absolute;
 }

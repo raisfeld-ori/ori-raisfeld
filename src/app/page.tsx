@@ -6,23 +6,32 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import cs from './images/csharp.png';
+import rs from './images/rust.png';
+import qt from './images/Qt.png';
+import py from './images/python.png';
+import ts from './images/typescript.png';
+import tauri from './images/tauri.png';
+import fb from './images/firebase.png';
+import plain from './images/plain.png';
+import arrow from './images/arrow-down-svgrepo-com.svg';
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 export default function Home() {
-  let parts = [
+  const parts = [
     "Hi",
     "I'm Ori Raisfeld",
     "I'm a fullstack developer",
     "extra"
   ];
-  const life_parts = [
-    {Date: "2007", Text: "I was born"},
-  ]
+  let random = 1;
+  const images = [
+    cs, rs, qt, py, ts, tauri, fb, plain
+  ];
   const [part, set_part] = useState(-1);
   const [text, set_text] = useState("");
-  const [date, set_data] = useState(2007);
-  const [show_text, set_show_text] = useState(false);
   const [started, set_started] = useState(false);
   
   useEffect(() => {
@@ -50,19 +59,27 @@ export default function Home() {
     }, 1500);
   }, [part]);
   useEffect(() => {
-    gsap.to(".circle", {
+    random = Math.floor(Math.random() * images.length);
+    gsap.to(".falling_img", {
       scrollTrigger: {
-        trigger: ".timeline_start",
-        start: "top center",
-        end: "center center",
+        trigger: ".falling",
+        start: "top top",
+        end: "bottom bottom",
         scrub: true,
       },
-      ease: "none",
-      duration: 1,
-      y: "53svh",
-      onComplete: () => {
-        
-      }
+      duration: 10,
+      y: "100svh",
+      rotate: 720,
+    });
+    gsap.to(".line", {
+      scrollTrigger: {
+        trigger: ".falling",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: true,
+      },
+      duration: 20,
+      y: "-100svh",
     });
   }, []);
   return (
@@ -88,16 +105,29 @@ export default function Home() {
           <h1 className="main_text title">{text}</h1>
           <div className="arrow" style={{opacity: started ? 1 : 0}}>🡣</div>
         </section>
-        <section className="hero timeline_start" style={{display: started ? "" : "none"}}>
-          <h1 className="font-bold title">About me</h1>
-          <div className="circle" id="circle"></div>
-          <div className="square" style={{display: show_text ? "" : "none"}}>
-            <h3 className="text-3xl text-black text-center">I was born</h3>
-            <p className="text-black text-center">fwohwfporjeegpjewiro</p>
-            <div className="triangle"></div>
-            </div>
-          <div className="line"></div>
-          <h5 className="mt-5">{date}</h5>
+        <section className="falling">
+          <>
+            {images.map((image, i) => {
+            return <Image src={image} key={i} alt="" loading="lazy" className={"falling_img location" + i}
+              ></Image>
+            })}
+            {[...Array(7)].map((_, i) => {
+              return <>
+              <div key={i + "line"} className="line" style={{
+                bottom: (-25 * i) + -30 + "svh", left: (2 * (i * random) + 1) + "svw"
+              }}></div>
+                <div key={i + "line"} className="line" style={{
+                bottom: (-25 * i) + -30 + "svh", right: (2 * (i * random) + 5) + "svw"
+              }}></div>
+                <div key={i + "line"} className="line" style={{
+                bottom: (-25 * i) + -30 + "svh", right: (2 * (i * random) + 5) + 40 + "svw"
+              }}></div>
+              </>
+            })}
+          </>
+        </section>
+        <section className="about_me">
+
         </section>
     </div>
   );

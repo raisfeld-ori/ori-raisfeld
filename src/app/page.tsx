@@ -14,6 +14,15 @@ import ts from './images/typescript.png';
 import tauri from './images/tauri.png';
 import fb from './images/firebase.png';
 import plain from './images/plain.png';
+import native from './images/react-native-logo.png';
+import cpp from './images/cpp.png';
+import c from './images/c.png';
+import tf from './images/tf.png';
+import unity from './images/unity.png';
+import sql from './images/sql.png';
+import expo from './images/expo.png';
+import react from './images/React.png';
+import me from './images/me.jpg';
 import arrow from './images/arrow-down-svgrepo-com.svg';
 import Image from "next/image";
 
@@ -28,15 +37,17 @@ export default function Home() {
   ];
   let random = 1;
   const images = [
-    cs, rs, qt, py, ts, tauri, fb, plain
+    cs, rs, qt, py, ts, tauri, fb, plain, native, cpp,
+    c, tf, unity, sql, expo, react,
   ];
   const [part, set_part] = useState(-1);
   const [text, set_text] = useState("");
   const [started, set_started] = useState(false);
-  
+  const start = false;
   useEffect(() => {
     setTimeout(() => {
-      if (part == parts.length) {return}
+      if (start){set_started(true);}
+      else if (part == parts.length) {return}
       else if (part == -1){
         set_part(1);
         set_text(parts[0]);
@@ -60,26 +71,17 @@ export default function Home() {
   }, [part]);
   useEffect(() => {
     random = Math.floor(Math.random() * images.length);
-    gsap.to(".falling_img", {
+    let tl = gsap.timeline();
+    tl.to(".falling_img", {
       scrollTrigger: {
         trigger: ".falling",
         start: "top top",
-        end: "bottom bottom",
+        end: "bottom center",
         scrub: true,
       },
-      duration: 10,
-      y: "100svh",
+      duration: 100,
+      y: "110svh",
       rotate: 720,
-    });
-    gsap.to(".line", {
-      scrollTrigger: {
-        trigger: ".falling",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: true,
-      },
-      duration: 20,
-      y: "-100svh",
     });
   }, []);
   return (
@@ -88,7 +90,7 @@ export default function Home() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <Link href="/" className="text-4xl font-bold text-white shadow-white hover:text-neutral-700">
+            <Link href="/" className="text-4xl text-nowrap font-bold text-white shadow-white hover:text-neutral-700">
               Ori Raisfeld
             </Link>
           </div>
@@ -103,30 +105,68 @@ export default function Home() {
     </nav>
         <section className="hero">
           <h1 className="main_text title">{text}</h1>
+          <div className="background" style={{opacity: started ? 1 : 0}}></div>
           <div className="arrow" style={{opacity: started ? 1 : 0}}>🡣</div>
         </section>
-        <section className="falling">
+        <section className="falling" style={{display: started ? "" : "none"}}>
           <>
             {images.map((image, i) => {
             return <Image src={image} key={i} alt="" loading="lazy" className={"falling_img location" + i}
               ></Image>
             })}
-            {[...Array(7)].map((_, i) => {
+            {[...Array(4)].map((_, i) => {
               return <>
               <div key={i + "line"} className="line" style={{
-                bottom: (-25 * i) + -30 + "svh", left: (2 * (i * random) + 1) + "svw"
+                bottom: (-25 * i) - 20 + 3 + "svh", left: (2 * (i * random) + 1) + "svw"
               }}></div>
                 <div key={i + "line"} className="line" style={{
-                bottom: (-25 * i) + -30 + "svh", right: (2 * (i * random) + 5) + "svw"
+                bottom: (-25 * i) - 20 + 5 + "svh", right: (2 * i + 5) + "svw"
               }}></div>
                 <div key={i + "line"} className="line" style={{
-                bottom: (-25 * i) + -30 + "svh", right: (2 * (i * random) + 5) + 40 + "svw"
+                bottom: (-25 * i) - 20 + 9 + "svh", right: (2 * (i * random) + 5) + 40 + "svw"
               }}></div>
               </>
             })}
           </>
         </section>
-        <section className="about_me">
+        <section className="skills" style={{display: started ? "" : "none"}}>
+            <h2 className="title text-center">My skills</h2>
+            <div style={{marginTop: "100svh"}}>
+            <h3 className="text-center text-6xl mb-5">Main Tools:</h3>
+            <ul className="flex justify-center flex-row mb-10">
+              <Image src={py} alt="" className="logo"></Image>
+              <Image src={rs} alt="" className="logo"></Image>
+              <Image src={expo} alt="" className="logo"></Image>
+              <Image src={tauri} alt="" className="logo"></Image>
+              <Image src={react} alt="" className="logo"></Image>
+              <Image src={fb} alt="" className="logo"></Image>
+              <Image src={ts} alt="" className="logo"></Image>
+            </ul>
+            </div>
+            <h3 className="text-center text-6xl mb-5">Other Tools:</h3>
+            <ul className="flex justify-center flex-row">
+            <Image src={cs} alt="" className="logo"></Image>
+              <Image src={unity} alt="" className="logo"></Image>
+              <Image src={tf} alt="" className="logo"></Image>
+              <Image src={qt} alt="" className="logo"></Image>
+              <Image src={plain} alt="" className="logo"></Image>
+            </ul>
+        </section>
+        <section className="about_me m-1" style={{display: started ? "" : "none"}}>
+          <h1 className="title text-center">About me</h1>
+          <div className="flex flex-row justify-center items-center m-2">
+            <p className="me_text">
+              I'm Ori Raisfeld, A fullstack developer, I started programming 3 years ago in 2021.
+              <br /><br />
+              I started with 0 knowlage, by simply writing "python" into youtube during school,
+              while creating my first application, I learned how fun and difficult can creating apps.
+              <br></br><br></br>
+              I am currently studying at Chamama Highschool and trying to get a B.C in The open University.
+            </p>
+            <Image src={me} className="me" alt=""></Image>
+          </div>
+        </section>
+        <section className="projects">
 
         </section>
     </div>

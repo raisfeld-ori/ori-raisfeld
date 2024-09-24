@@ -17,12 +17,48 @@
     0 0 7px rgba(255, 255, 255, 0.4);
 }
 
+.background{
+    position: fixed;
+    top: 30svh;
+    background: linear-gradient(to right, #008eab, #0f7a7a, #50f9ff);
+    height: 12em;
+    width: 17em;
+    z-index: -1;
+    border-radius: 50%;
+    filter: blur(100px) opacity(0.1);
+    transition: all 5s ease-in-out;
+    animation: infinite alternate change_color 10s ease-in-out;
+}
+
+@keyframes change_color {
+    0%{
+        transform: rotate(0deg);
+        border-radius: 60% 40% 30% 70% / 60% 30% 65% 40%;
+        filter: blur(100px) opacity(0.2);
+    }
+    100%{
+        transform: rotate(360deg);
+        border-radius: 90% 60% 70% 40% / 50% 60% 30% 50%;
+        filter: blur(100px) opacity(0.4);
+    }
+}
+
+@keyframes change_border {
+    0%, 100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 65% 40%;
+    }
+    50% {
+        border-radius: 100% 60% 70% 40% / 50% 60% 30% 50%;
+    }
+}
+
 .menu{
     background-color: black;
     position: fixed;
     transition: transform 1s ease-out;
     z-index: 100;
     width: 100svw;
+    padding: 0;
 }
 
 .title{
@@ -50,26 +86,57 @@
 
 .falling{
     width: 100%;
-    height: 200svh;
+    height: 100svh;
 }
 
 .falling_img{
     height: 5em;
     width: 5em;
     position: absolute;
+    object-fit: contain;
+}
+
+.about_me{
+    height: 100svh;
+    width: 100svw;
+}
+
+.me_text{
+    width: 40svw;
+    margin-left: 10px;
+}
+
+.me{
+    height: 70svh;
+    width: 40svw;
+    animation: infinite forwards change_border 10s ease-in-out;
+}
+
+.skills{
+    height: 200svh;
+    width: 100svw;
+}
+
+.logo{
+    height: 3em;
+    width: 4em;
+    object-fit: contain;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .location0{
     height: 3em;
     width: 3em;
     left: 50svw;
-    bottom: -80svh;
+    bottom: -100svh;
 }
 
 .location1{
     height: 3em;
     width: 3em;
     right: 10svw;
+    bottom: -100svh;
 }
 
 .location2{
@@ -97,7 +164,7 @@
     height: 5em;
     width: 5em;
     left: 45svw;
-    bottom: -20svh;
+    bottom: -25svh;
 }
 
 .location6{
@@ -114,9 +181,73 @@
     bottom: -90svh;
 }
 
+.location8{
+    height: 3em;
+    width: 3em;
+    right: 20svw;
+    bottom: -40svh;
+}
+
+
+.location9{
+    height: 6em;
+    width: 6em;
+    left: 2svw;
+    bottom: -60svh;
+}
+
+.location10{
+    height: 4em;
+    width: 4em;
+    right: 35svw;
+    bottom: -40svh;
+}
+
+.location11{
+    height: 3em;
+    width: 3em;
+    left: 30svw;
+    bottom: -30svh;
+}
+
+.location12{
+    height: 2.5em;
+    width: 2.5em;
+    right: 4svw;
+    bottom: -30svh;
+}
+
+.location13{
+    height: 3em;
+    width: 3em;
+    left: 55svw;
+    bottom: -55svh;
+}
+
+.location13{
+    height: 3em;
+    width: 3em;
+    left: 55svw;
+    bottom: -55svh;
+}
+
+.location14{
+    height: 6em;
+    width: 6em;
+    left: 60svw;
+    bottom: -85svh;
+}
+
+.location15{
+    height: 6em;
+    width: 6em;
+    left: 80svw;
+    bottom: -25svh;
+}
+
 .line{
-    width: 5px;
-    height: 1em;
-    background-color: rgba(255, 255, 255, 0.422);
+    width: 2px;
+    height: 2em;
+    background-color: rgba(255, 255, 255, 0.288);
     position: absolute;
 }

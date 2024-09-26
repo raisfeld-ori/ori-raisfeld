@@ -3,7 +3,12 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap');
-
+*{
+  scrollbar-width: none;
+  /*for Chrome/Safari/Opera/Edge*/
+  scrollbar-style: none;
+  -webkit-scrollbar: none;
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;

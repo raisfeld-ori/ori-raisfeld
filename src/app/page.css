@@ -84,18 +84,6 @@
     50%{transform: translateY(-10px);}
 }
 
-.falling{
-    width: 100%;
-    height: 100svh;
-}
-
-.falling_img{
-    height: 5em;
-    width: 5em;
-    position: absolute;
-    object-fit: contain;
-}
-
 .about_me{
     height: 100svh;
     width: 100svw;
@@ -117,137 +105,101 @@
     width: 100svw;
 }
 
-.logo{
-    height: 3em;
-    width: 4em;
-    object-fit: contain;
-    margin-left: 10px;
-    margin-right: 10px;
+.projects{
+    height: 100svh;
+    width: 100svw;
 }
 
-.location0{
-    height: 3em;
-    width: 3em;
-    left: 50svw;
-    bottom: -100svh;
-}
-
-.location1{
-    height: 3em;
-    width: 3em;
-    right: 10svw;
-    bottom: -100svh;
-}
-
-.location2{
-    height: 4em;
-    width: 4em;
-    bottom: -20svh;
-    left: 5svw;
-}
-
-.location3{
-    height: 6em;
-    width: 6em;
-    left: 30svw;
-    bottom: -60svh;
-}
-
-.location4{
-    height: 2em;
-    width: 2em;
-    left: 70svw;
-    bottom: -60svh;
-}
-
-.location5{
-    height: 5em;
-    width: 5em;
-    left: 45svw;
-    bottom: -25svh;
-}
-
-.location6{
-    height: 6em;
-    width: 6em;
-    left: 10svw;
-    bottom: -90svh;
-}
-
-.location7{
-    height: 6em;
-    width: 6em;
-    right: 5svw;
-    bottom: -90svh;
-}
-
-.location8{
-    height: 3em;
-    width: 3em;
-    right: 20svw;
-    bottom: -40svh;
-}
-
-
-.location9{
-    height: 6em;
-    width: 6em;
-    left: 2svw;
-    bottom: -60svh;
-}
-
-.location10{
-    height: 4em;
-    width: 4em;
-    right: 35svw;
-    bottom: -40svh;
-}
-
-.location11{
-    height: 3em;
-    width: 3em;
-    left: 30svw;
-    bottom: -30svh;
-}
-
-.location12{
-    height: 2.5em;
-    width: 2.5em;
-    right: 4svw;
-    bottom: -30svh;
-}
-
-.location13{
-    height: 3em;
-    width: 3em;
-    left: 55svw;
-    bottom: -55svh;
-}
-
-.location13{
-    height: 3em;
-    width: 3em;
-    left: 55svw;
-    bottom: -55svh;
-}
-
-.location14{
-    height: 6em;
-    width: 6em;
-    left: 60svw;
-    bottom: -85svh;
-}
-
-.location15{
-    height: 6em;
-    width: 6em;
-    left: 80svw;
-    bottom: -25svh;
+.pop_up{
+    width: 100svw;
+    min-height: 100svh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10svh;
+    transition: all 0.5s ease-in-out;
+    opacity: 0.7;
+    transform: scale3d(0.9, 0.8, 0.9) translate3d(0, 240px, 0);
+    margin-top: auto;
+    margin: 1em;
+    margin-bottom: 10em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .line{
-    width: 2px;
-    height: 2em;
-    background-color: rgba(255, 255, 255, 0.288);
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 100svh;
+}
+
+.focus{
+    opacity: 1;
+    transform: scale3d(1, 1, 1) translate3d(0, 80px, 0);
+}
+
+.project{
+    margin: 5px;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    width: 100%;
+    height: auto;
+}
+
+.project:hover{
+    transform: scale(1.03);
+}
+
+.project_text{
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.819);
+    transform: translateY(-10svh);
+    height: 10svh;
+    font-size: 2em;
+}
+
+.project_image{
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+}
+
+.jobs{
+    margin-top: 30svh;
+    height: 1000svh;
+    width: 100svw;
+    text-align: center;
+}
+
+.job{
+    height: 100svh;
+    width: 100svw;
+    display: flex;
+}
+
+.job_title{
+    font-size: 2em;
+    text-shadow:
+    0 0 1px rgba(255, 255, 255, 0.8),
+    0 0 4px rgba(255, 255, 255, 0.4);
+}
+
+.job_logo{
+    object-fit: contain;
+    height: 15em;
+    width: 15em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.scroll{
+    display: flex;
+    width: 1000svw;
 }

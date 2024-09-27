@@ -24,7 +24,10 @@ import tegreai from './images/tegreai.jpeg';
 import qt from './images/qt.png';
 import google_pdf from './images/screenshot.png';
 import rds from './images/light.png';
-import arrow from './images/arrow-down-svgrepo-com.svg';
+import github from './images/github.png';
+import linkedin from './images/linkedin.png';
+import gmail from './images/gmail.png';
+import menu from './images/four-squares-icon.svg';
 import Image, { StaticImageData } from "next/image";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -36,6 +39,7 @@ export default function Home() {
     "I'm a fullstack developer",
     "extra"
   ];
+  const [mobile_menu_visible, set_mobile_menu_visible] = useState(false);
   const [part, set_part] = useState(-1);
   const [text, set_text] = useState("");
   const [started, set_started] = useState(false);
@@ -124,12 +128,21 @@ export default function Home() {
               Ori Raisfeld
             </Link>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center options">
           <div onClick={() => scroll_to(projects_ref)} className="m-5 cursor-pointer hover:text-neutral-700">Projects</div>
           <div onClick={() => scroll_to(jobs_ref)} className="m-5 cursor-pointer hover:text-neutral-700">Jobs</div>
           <div onClick={() => scroll_to(about_ref)} className="m-5 cursor-pointer hover:text-neutral-700">About</div>
           <div onClick={() => {}} className="m-5 cursor-pointer hover:text-neutral-700">Resume</div>
           </div>
+          <div className="flex items-center mobile-only" onClick={() => set_mobile_menu_visible(!mobile_menu_visible)}>
+            <Image src={menu} alt="" className={"menu-button " + (mobile_menu_visible ? "active" : "")}></Image>
+            </div>
+        </div>
+        <div className={"mobile-options " + (mobile_menu_visible ? "" : "not-active")}>
+        <div onClick={() => {set_mobile_menu_visible(false);scroll_to(projects_ref)}} className="m-5 cursor-pointer font-bold text-5xl ">Projects</div>
+          <div onClick={() => {set_mobile_menu_visible(false);scroll_to(jobs_ref)}} className="m-5 cursor-pointer font-bold text-5xl ">Jobs</div>
+          <div onClick={() => {set_mobile_menu_visible(false);scroll_to(about_ref)}} className="m-5 cursor-pointer font-bold text-5xl ">About</div>
+          <div onClick={() => {set_mobile_menu_visible(false)}} className="m-5 mb-20 cursor-pointer font-bold text-5xl">Resume</div>
         </div>
       </div>
     </nav>
@@ -151,23 +164,26 @@ export default function Home() {
             </p>
             <Image src={me} className="me" alt=""></Image>
           </div>
-        </section>
-        <section className="skills" style={{display: started ? "" : "none"}}>
-            <h2 className="title text-center">My skills</h2>
-            <h3 className="text-center text-6xl mb-5">My Languages:</h3>
+          <div className="flex flex-row justify-center items-center mt-10 mobile-change">
+            <div className="flex flex-col h-32 m-5">
+            <h3 className="text-center text-6xl mb-5">Languages:</h3>
             <ul className="flex justify-center flex-row mb-10">
               <Image src={py} alt="" className="logo"></Image>
               <Image src={rs} alt="" className="logo"></Image>
               <Image src={react} alt="" className="logo"></Image>
               <Image src={ts} alt="" className="logo"></Image>
             </ul>
-            <h3 className="text-center text-6xl mb-5">My Tools:</h3>
+            </div>
+            <div className="flex flex-col h-32 m-5">
+            <h3 className="text-center text-6xl mb-5">Tools:</h3>
             <ul className="flex justify-center flex-row">
               <Image src={tauri} alt="" className="logo"></Image>
               <Image src={expo} alt="" className="logo" style={{width: "4em"}}></Image>
               <Image src={fb} alt="" className="logo"></Image>
               <Image src={qt} alt="" className="logo"></Image>
             </ul>
+            </div>
+            </div>
         </section>
         <section className="projects" style={{display: started ? "" : "none"}}>
           <h1 className="title text-center">Projects:</h1>
@@ -219,10 +235,13 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="contact">
+        <section className="contact" style={{display: started ? "" : "none"}}>
           <h1 className="title">Contact Me!</h1>
-          <div className="contact_form">
-          </div>
+          <ul className="flex justify-center flex-row">
+            <Social name="GitHub" image={github} link="https://github.com/raisfeld-ori" account="raisfeld-ori"></Social>
+            <Social name="Linkedin" image={linkedin} link="https://www.linkedin.com/in/ori-raisfeld-422392264/" account="ori-raisfeld-422392264"></Social>
+            <Social name="Gmail" image={gmail} link="mailto:raisfeldori@gmail.com" account="raisfeldori@gmail.com"></Social>
+          </ul>
         </section>
     </div>
   );
@@ -233,4 +252,14 @@ function Project(props: {name: string, image: StaticImageData, height: number, w
       <div className="project_image"><Image src={props.image} alt={props.name}></Image></div>
       <div className="project_text">{props.name}</div>
     </div>
+}
+
+function Social(props: {name: string, image: StaticImageData, link: string, account: string}) {
+  return <div className="social">
+    <Image src={props.image} onClick={() => window.open(props.link, "_blank")} alt="" className="social-logo"></Image>
+    <div>
+      <h5 className="social-title">{props.name}</h5>
+      <h6 className="social-account">{props.account}</h6>
+    </div>
+  </div>
 }

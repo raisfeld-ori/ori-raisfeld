@@ -85,7 +85,7 @@
 }
 
 .about_me{
-    height: 100svh;
+    height: 130svh;
     width: 100svw;
 }
 
@@ -225,14 +225,82 @@ img{
 }
 
 .contact{
-    height: 100svh;
     width: 100svw;
     text-align: center;
 }
 
+.social{
+    display: inline-flex;
+    flex-direction: row;
+    padding: 10px;
+    border-radius: 100px;
+}
+
+.social-logo{
+    height: 3em;
+    width: 3em;
+    margin: 10px;
+    border-radius: 100px;
+    border-color: white;
+    border-width: 4px;
+    background-color: white;
+    cursor: pointer;
+    filter: invert(0);
+    object-fit:fill;
+    transition: all 0.5s ease-in-out;
+}
+.social-logo:hover{
+    filter:invert(2);
+}
+
+.social-account{
+    user-select: text;
+    font-size: 0.7em;
+    cursor:auto;
+}
 .job_description{
     text-align: center;
     font-size: 0.9em;
+}
+
+.mobile-only{
+    display: none;
+}
+
+.menu-button{
+    filter: invert(2);
+    height: 3em;
+    width: 3em;
+    margin: 10px;
+    border-radius: 50em;
+    border-color: white;
+    border-width: 4px;
+    background-color: white;
+    cursor: pointer;
+    transform: rotate(0deg);
+    transition: all 0.5s ease-in-out;
+    display: none;
+}
+
+.active{
+    transform: rotate(495deg);
+}
+
+.mobile-options{
+    display: none;
+}
+
+.mobile-options{
+    position: fixed;
+    left: 0;
+    width: 100vw;
+    height: 90svh;
+    background-color: rgb(0, 0, 0);
+    transform: translateY(0);
+    transition: all 0.5s ease-in-out;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 @media screen and (max-width: 800px) {
@@ -275,4 +343,23 @@ img{
         margin-left: auto;
         margin-right: auto;
     }
+    .options{
+        display: none;
+    }
+    .mobile-only{
+        display: block;
+    }
+    .menu-button{
+        display: block;
+    }
+    .mobile-options{
+        display: flex;
+    }
+    .mobile-change{
+        flex-direction: column;
+    }
+}
+
+.not-active{
+    transform: translateY(-150svh);
 }

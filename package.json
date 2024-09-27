@@ -1,12 +1,15 @@
 {
   "name": "ori-raisfeld",
+  "homepage": "https://raisfeld-ori.github.io/ori-raisfeld",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "dependencies": {
     "gsap": "^3.12.5",

@@ -1,7 +1,6 @@
 "use client"
-import React, { LegacyRef, MutableRefObject, RefObject, useEffect, useRef, useState } from "react";
+import React, { RefObject, useEffect, useRef, useState } from "react";
 import './page.css';
-import Head from "next/head";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -155,9 +154,9 @@ export default function Home() {
           <h1 className="title text-center">About me</h1>
           <div className="flex about flex-row justify-center items-center m-2">
             <p className="me_text">
-              I'm Ori Raisfeld, A fullstack developer, I started programming 3 years ago in 2021.
+              I{"'"}m Ori Raisfeld, A fullstack developer, I started programming 3 years ago in 2021.
               <br /><br />
-              I started with 0 knowlage, by simply writing "python" into youtube during school,
+              I started with 0 knowlage, by simply writing {'"'}python{'"'} into youtube during school,
               while creating my first application, I learned how fun and difficult can creating apps.
               <br></br><br></br>
               I am currently studying at Chamama Highschool and trying to get a B.A in The open University.

@@ -28,6 +28,7 @@ import linkedin from './images/linkedin.png';
 import gmail from './images/gmail.png';
 import menu from './images/four-squares-icon.svg';
 import Image, { StaticImageData } from "next/image";
+import { useRouter } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -41,6 +42,7 @@ export default function Home() {
   const [mobile_menu_visible, set_mobile_menu_visible] = useState(false);
   const [part, set_part] = useState(-1);
   const [text, set_text] = useState("");
+  const navigation = useRouter();
   const [started, set_started] = useState(false);
   const projects_ref = useRef<HTMLDivElement>(null);
   const about_ref = useRef<HTMLDivElement>(null);
@@ -188,7 +190,7 @@ export default function Home() {
           <h1 className="title text-center">Projects:</h1>
             <div className="pop_up" ref={projects_ref}>
                 <div className="line">
-                  <Project name="Ksed" height={17} width={17} image={ksed}></Project>
+                  <Project onClick={() => navigation.push("/Ksed")} name="Ksed" height={17} width={17} image={ksed}></Project>
                   <Project name="HFCIG" height={12} width={17} image={hfcig}></Project>
                   <Project name="RDS" height={12} width={17} image={rds}></Project>
                 </div>
@@ -246,8 +248,8 @@ export default function Home() {
   );
 }
 
-function Project(props: {name: string, image: StaticImageData, height: number, width: number}) {
-  return <div className="project" style={{height: props.height + "em", width: props.width + "em"}} id={props.name}>
+function Project(props: {name: string, image: StaticImageData, onClick: () => void, height: number, width: number}) {
+  return <div className="project" onClick={props.onClick} style={{height: props.height + "em", width: props.width + "em"}} id={props.name}>
       <div className="project_image"><Image src={props.image} alt={props.name}></Image></div>
       <div className="project_text">{props.name}</div>
     </div>

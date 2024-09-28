@@ -1,11 +1,3 @@
-.hero{
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .main_text{
     text-align: center;
     font-size: 3em;
@@ -15,41 +7,6 @@
     0 0 2px rgba(255, 255, 255, 0.8),
     0 0 6px rgba(255, 255, 255, 0.6),
     0 0 7px rgba(255, 255, 255, 0.4);
-}
-
-.background{
-    position: fixed;
-    top: 30svh;
-    background: linear-gradient(to right, #008eab, #0f7a7a, #50f9ff);
-    height: 12em;
-    width: 17em;
-    z-index: -1;
-    border-radius: 50%;
-    filter: blur(100px) opacity(0.1);
-    transition: all 5s ease-in-out;
-    animation: infinite alternate change_color 10s ease-in-out;
-}
-
-@keyframes change_color {
-    0%{
-        transform: rotate(0deg);
-        border-radius: 60% 40% 30% 70% / 60% 30% 65% 40%;
-        filter: blur(100px) opacity(0.2);
-    }
-    100%{
-        transform: rotate(360deg);
-        border-radius: 90% 60% 70% 40% / 50% 60% 30% 50%;
-        filter: blur(100px) opacity(0.4);
-    }
-}
-
-@keyframes change_border {
-    0%, 100% {
-        border-radius: 60% 40% 30% 70% / 60% 30% 65% 40%;
-    }
-    50% {
-        border-radius: 100% 60% 70% 40% / 50% 60% 30% 50%;
-    }
 }
 
 .menu{
@@ -357,6 +314,12 @@ img{
     }
     .mobile-change{
         flex-direction: column;
+    }
+    .social-account{
+        display: none;
+    }
+    .social-title{
+        display: none;
     }
 }
 

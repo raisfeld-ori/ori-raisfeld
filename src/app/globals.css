@@ -84,3 +84,13 @@ body {
       border-radius: 100% 60% 70% 40% / 50% 60% 30% 50%;
   }
 }
+
+.arrow-back{
+  height: 2em;
+  width: 2em;
+  position: absolute;
+  filter:invert(2);
+  margin: 10px;
+  left: 0;
+  cursor: pointer;
+}

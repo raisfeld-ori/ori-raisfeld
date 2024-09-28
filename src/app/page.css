@@ -18,13 +18,6 @@
     padding: 0;
 }
 
-.title{
-    font-size: 3em;
-    text-shadow:
-    0 0 1px rgba(255, 255, 255, 0.8),
-    0 0 6px rgba(255, 255, 255, 0.4);
-}
-
 .arrow{
     text-align: center;
     font-size: 2em;

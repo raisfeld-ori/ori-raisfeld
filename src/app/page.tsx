@@ -191,7 +191,7 @@ export default function Home() {
             <div className="pop_up" ref={projects_ref}>
                 <div className="line">
                   <Project onClick={() => navigation.push("/Ksed")} name="Ksed" height={17} width={17} image={ksed}></Project>
-                  <Project name="HFCIG" height={12} width={17} image={hfcig}></Project>
+                  <Project onClick={() => navigation.push("/hfcig")} name="HFCIG" height={12} width={17} image={hfcig}></Project>
                   <Project name="RDS" height={12} width={17} image={rds}></Project>
                 </div>
                 <div className="line">

@@ -94,3 +94,50 @@ body {
   left: 0;
   cursor: pointer;
 }
+
+
+.title{
+  font-size: 3em;
+  text-shadow:
+  0 0 1px rgba(255, 255, 255, 0.8),
+  0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+.image{
+  object-fit: contain;
+  height: 40%;
+  width: 35%;
+  margin: 1em;
+}
+
+.images{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.open_project{
+  display: flex;
+  width: 30%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.open_project_img{
+  object-fit: contain;
+  height: 1em;
+  width: 1em;
+  filter: invert(2);
+  margin: 5px;
+}
+
+@media screen and (max-width: 800px) {
+  .images{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

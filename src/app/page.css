@@ -46,7 +46,9 @@
 
 .me{
     height: 70svh;
-    width: 40svw;
+    width: 30svw;
+    margin-left: 10px;
+    margin-right: 10px;
     animation: infinite forwards change_border 10s ease-in-out;
 }
 
@@ -265,7 +267,7 @@ img{
         width: 100%;
     }
     .me{
-        width: 100%;
+        width: 50svw;
     }
     .pop_up{
         display: flex;

@@ -156,7 +156,7 @@ export default function Home() {
           <h1 className="title text-center">About me</h1>
           <div className="flex about flex-row justify-center items-center m-2">
             <p className="me_text">
-              I{"'"}m Ori Raisfeld, A fullstack developer, I started programming 3 years ago in 2021.
+              I{"'"}m Ori Raisfeld, A fullstack developer, I started programming 2 years ago in 2021.
               <br /><br />
               I started with 0 knowlage, by simply writing {'"'}python{'"'} into youtube during school,
               while creating my first application, I learned how fun and difficult can creating apps.

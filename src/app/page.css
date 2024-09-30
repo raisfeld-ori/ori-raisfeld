@@ -99,15 +99,7 @@
 }
 
 .logo:hover{
-    filter: brightness(1.5) saturate(1.1);
-    transform: translateY(-20px);
-    cursor: pointer;
-    animation: infinite alternate shake 0.2s ease-in-out;
-}
-
-@keyframes shake {
-    0%{rotate: 2deg;}
-    100%{rotate: -2deg;}
+    filter: brightness(1.2) saturate(1.01);
 }
 
 .project{

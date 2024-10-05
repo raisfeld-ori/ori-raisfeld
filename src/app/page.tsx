@@ -209,7 +209,8 @@ export default function Home() {
               <h2 className="job_title">Chamama Highschool</h2>
               <h3 className="achivement">2021 - Present</h3>
               <p className="job_description">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id dolorem at quisquam reiciendis adipisci. Quia ullam excepturi laborum nostrum nam, aspernatur aliquam delectus in doloremque natus culpa unde a enim
+                This is the highschool I am currently studying in. I used project based learning with lanauges like python, rust, and typescript in order to create
+                fullstack applications and deploy them. All projects in this website (and this website) were made this way.
               </p>
               </div>
               <Image className="job_logo" src={chamama} alt=""></Image>
@@ -219,7 +220,8 @@ export default function Home() {
               <h2 className="job_title">The Open University</h2>
               <h3 className="achivement">2022 - Present</h3>
               <p className="job_description">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id dolorem at quisquam reiciendis adipisci. Quia ullam excepturi laborum nostrum nam, aspernatur aliquam delectus in doloremque natus culpa unde a enim.
+                This is my University where I learn Computer sciecnce. Alongside learning mathmetics and alogrithms, I also made many connections and friends.
+                My goal is to get a B.A in CS, and I have already completed a couple courses.
               </p>
               </div>
               <Image className="job_logo" src={openuni} alt=""></Image>
@@ -229,7 +231,8 @@ export default function Home() {
               <h2 className="job_title">TeGriAi</h2>
               <h3 className="achivement">2024 - Present</h3>
               <p className="job_description">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id dolorem at quisquam reiciendis adipisci. Quia ullam excepturi laborum nostrum nam, aspernatur aliquam delectus in doloremque natus culpa unde a enim.
+                My first ever job. I programmed with React (javascript) for frontend and strapi for backend.
+                I had to work on both the frontend and the backend, and I completed many pages and components entirely on my own.
               </p>
               </div>
               <Image className="job_logo" src={tegreai} alt=""></Image>

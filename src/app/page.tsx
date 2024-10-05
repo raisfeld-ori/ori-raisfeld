@@ -192,12 +192,12 @@ export default function Home() {
                 <div className="line">
                   <Project onClick={() => navigation.push("/Ksed")} name="Ksed" height={17} width={17} image={ksed}></Project>
                   <Project onClick={() => navigation.push("/hfcig")} name="HFCIG" height={12} width={17} image={hfcig}></Project>
-                  <Project name="RDS" height={12} width={17} image={rds}></Project>
+                  <Project onClick={() => navigation.push("/rds")} name="RDS" height={12} width={17} image={rds}></Project>
                 </div>
                 <div className="line">
-                  <Project name="D vault" height={17} width={17} image={d_vault}></Project>
-                  <Project name="Hibori" height={15} width={7} image={hibori}></Project>
-                  <Project name="Google PDF" height={12} width={12} image={google_pdf}></Project>
+                  <Project onClick={() => navigation.push("/d_vault")} name="D vault" height={17} width={17} image={d_vault}></Project>
+                  <Project onClick={() => navigation.push("/hibori")} name="Hibori" height={15} width={7} image={hibori}></Project>
+                  <Project onClick={() => navigation.push("/google")} name="Google PDF" height={12} width={12} image={google_pdf}></Project>
                 </div>
             </div>
         </section>

@@ -3,10 +3,570 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            --bg-card: linear-gradient(135deg, #1a1a1a 0%, #242424 100%);
+            --bg-section: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            --bg-section-light: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            --border-color: #333;
+            --border-light: #444;
+            --text-primary: #ffffff;
+            --text-secondary: #888;
+            --text-tertiary: #666;
+            --divider: linear-gradient(90deg, transparent, #444, transparent);
+        }
+
+        body.light {
+            --bg-primary: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
+            --bg-card: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+            --bg-section: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+            --bg-section-light: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+            --border-color: #ddd;
+            --border-light: #ccc;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666;
+            --text-tertiary: #999;
+            --divider: linear-gradient(90deg, transparent, #ccc, transparent);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            max-width: 900px;
+            width: 100%;
+            padding: 60px 80px;
+            transition: background 0.3s ease, border-color 0.3s ease;
+            position: relative;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--bg-section) 0%, var(--bg-section-light) 100%);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            border-color: var(--border-light);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 50px;
+            gap: 40px;
+        }
+
+        .header-text {
+            text-align: left;
+            flex: 1;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border-color);
+            flex-shrink: 0;
+            transition: border-color 0.3s ease;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .subtitle {
+            font-size: 1.15em;
+            color: var(--text-secondary);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .subtitle a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-bottom: 1px solid var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .subtitle a:hover {
+            color: var(--text-primary);
+            border-bottom-color: var(--text-primary);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--divider);
+            margin: 40px 0;
+            transition: background 0.3s ease;
+        }
+
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .left-section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .right-section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--bg-section) 0%, var(--bg-section-light) 100%);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--border-color) 0%, var(--border-light) 100%);
+            border-color: var(--border-light);
+            transform: translateY(-2px);
+        }
+
+        .social-link img {
+            width: 28px;
+            height: 28px;
+            filter: brightness(0.9);
+        }
+
+        .social-link:hover img {
+            filter: brightness(1.2);
+        }
+
+        .resume-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--bg-section) 0%, var(--bg-section-light) 100%);
+            color: var(--text-primary);
+            padding: 16px 45px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .resume-btn:hover {
+            background: linear-gradient(135deg, var(--border-color) 0%, var(--border-light) 100%);
+            border-color: var(--border-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            background: var(--bg-section);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .section-title {
+            font-size: 1.2em;
+            color: var(--text-primary);
+            margin-bottom: 18px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            transition: color 0.3s ease;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .tech-category {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .tech-category-title {
+            font-size: 0.75em;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.6;
+        }
+
+        .tech-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            gap: 8px;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, var(--bg-section-light) 0%, var(--bg-section) 100%);
+            color: var(--text-secondary);
+            padding: 8px 6px;
+            border-radius: 6px;
+            font-size: 0.7em;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        .tech-tag:hover {
+            background: linear-gradient(135deg, var(--border-color) 0%, var(--border-light) 100%);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .tech-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.9;
+        }
+
+        .tech-icon img {
+            width: 16px;
+            height: 16px;
+            object-fit: contain;
+        }
+
+        .projects {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .project {
+            background: var(--bg-section-light);
+            border: 1px solid var(--border-color);
+            border-left: 3px solid var(--border-light);
+            padding: 18px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .project-category {
+            background: linear-gradient(135deg, var(--border-color) 0%, var(--border-light) 100%);
+            color: var(--text-primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.65em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .project:hover {
+            border-left-color: var(--text-secondary);
+            background: var(--bg-section);
+        }
+
+        .project h3 {
+            color: var(--text-primary);
+            font-size: 1em;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            transition: color 0.3s ease;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            line-height: 1.5;
+            transition: color 0.3s ease;
+        }
+
+        .project-link {
+            color: var(--text-secondary);
+            font-size: 0.8em;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            word-break: break-all;
+        }
+
+        .project-link:hover {
+            color: var(--text-primary);
+            text-decoration: underline;
+        }
+
+        .project p {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            line-height: 1.5;
+            transition: color 0.3s ease;
+        }
+
+        .placeholder {
+            color: var(--text-tertiary);
+            font-style: italic;
+            font-size: 0.9em;
+            transition: color 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                padding: 40px 30px;
+            }
+
+            .content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Coming soon</h1>
-    <p>Re-working my website. new link coming soon</p>
+    <div class="card">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+        <div class="header">
+            <img src="/me.png" alt="Profile" class="profile-image">
+            <div class="header-text">
+                <h1>Ori Raisfeld</h1>
+                <p class="subtitle">Fullstack Software Engineer at <a href="https://vimore.co.il" target="_blank">Vimore.co.il</a></p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="content-wrapper">
+            <div class="left-section">
+                <div>
+                    <div class="social-links">
+                        <a href="https://github.com/raisfeld-ori" target="_blank" class="social-link" title="GitHub">
+                            <img src="Github.svg" alt="GitHub">
+                        </a>
+                        <a href="mailto:raisfeldori@gmail.com" class="social-link" title="Gmail">
+                            <img src="Gmail.svg" alt="Gmail">
+                        </a>
+                        <a href="https://wa.me/927505261007" target="_blank" class="social-link" title="WhatsApp">
+                            <img src="Whatsapp.svg" alt="WhatsApp">
+                        </a>
+                        <a href="https://www.linkedin.com/in/ori-raisfeld-422392264/" target="_blank" class="social-link" title="LinkedIn">
+                            <img src="Linkedin.png" style="width: 27px;" alt="LinkedIn">
+                        </a>
+                    </div>
+                </div>
+
+                <a href="/resume.pdf" target="_blank" class="resume-btn">Download Resume</a>
+
+                <div class="section">
+                    <h2 class="section-title">Tech Stack</h2>
+                    <div class="tech-stack">
+                        <div class="tech-category">
+                            <div class="tech-category-title">Frontend</div>
+                            <div class="tech-items">
+                                <span class="tech-tag"><div class="tech-icon"><i class="fab fa-react"></i></div><span>React</span></span>
+                                <span class="tech-tag"><div class="tech-icon"><img src="/flutter.svg" alt="Flutter"></div><span>Flutter</span></span>
+                                <span class="tech-tag"><div class="tech-icon"><i class="fas fa-window-restore"></i></div><span>Tauri</span></span>
+                                <span class="tech-tag"><div class="tech-icon"><i class="fas fa-cube"></i></div><span>Qt</span></span>
+                            </div>
+                        </div>
+                        <div class="tech-category">
+                            <div class="tech-category-title">Backend</div>
+                            <div class="tech-items">
+                                <span class="tech-tag"><div class="tech-icon"><i class="fab fa-python"></i></div><span>FastAPI</span></span>
+                                <span class="tech-tag"><div class="tech-icon"><i class="fab fa-python"></i></div><span>Flask</span></span>
+                                <span class="tech-tag"><div class="tech-icon"><img src="/rust.svg" alt="Rust"></div><span>Rust</span></span>
+                                <span class="tech-tag"><div class="tech-icon"><img src="/flutter.svg" alt="dart"></div><span>Dart</span></span>
+                            </div>
+                        </div>
+                        <div class="tech-category">
+                            <div class="tech-category-title">Database</div>
+                            <div class="tech-items">
+                                <span class="tech-tag"><div class="tech-icon"><i class="fas fa-database"></i></div><span>Postgres</span></span>
+                                <span class="tech-tag"><div class="tech-icon"><i class="fas fa-database"></i></div><span>MySQL</span></span>
+                                <span class="tech-tag"><div class="tech-icon"><i class="fab fa-google"></i></div><span>Firebase</span></span>
+                                <span class="tech-tag"><div class="tech-icon"><img src="https://appwrite.io/assets/logomark/logo.svg" alt="Appwrite"></div><span>Appwrite</span></span>
+                            </div>
+                        </div>
+                        <div class="tech-category">
+                            <div class="tech-category-title">DevOps</div>
+                            <div class="tech-items">
+                                <span class="tech-tag"><div class="tech-icon"><i class="fab fa-github"></i></div><span>GitHub</span></span>
+                                <span class="tech-tag"><div class="tech-icon"><i class="fab fa-google"></i></div><span>GCP</span></span>
+                                <span class="tech-tag"><div class="tech-icon"><i class="fab fa-docker"></i></div><span>Docker</span></span>
+                                <span class="tech-tag"><div class="tech-icon"><i class="fas fa-train"></i></div><span>Railway</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <div class="section">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <div class="projects">
+                        <div class="project">
+                            <div class="project-header">
+                                <h3>Appwrite ORM</h3>
+                                <span class="project-category">Package</span>
+                            </div>
+                            <p class="project-description">An ORM for Appwrite with many advanced features. Used in multiple production websites</p>
+                            <a href="https://appwrite-orm.online" target="_blank" class="project-link">appwrite-orm.online</a>
+                        </div>
+                        <div class="project">
+                            <div class="project-header">
+                                <h3>CloudConvert Lib</h3>
+                                <span class="project-category">Package</span>
+                            </div>
+                            <p class="project-description">A simplified system to use the CloudConvert API in Rust</p>
+                            <a href="https://crates.io/crates/simple_cloudconvert" target="_blank" class="project-link">crates.io/crates/simple_cloudconvert</a>
+                        </div>
+                        <div class="project">
+                            <div class="project-header">
+                                <h3>Israir Notifier</h3>
+                                <span class="project-category">Website</span>
+                            </div>
+                            <p class="project-description">Private application made for Israir, to check the states of planes and notify employees of tasks when events occur</p>
+                            <span class="project-link">(private)</span>
+                        </div>
+                        <div class="project">
+                            <div class="project-header">
+                                <h3>AutoCAD Copilot</h3>
+                                <span class="project-category">Application</span>
+                            </div>
+                            <p class="project-description">A private AI copilot for AutoCAD with the ability to measure, read, and summarize AutoCAD files</p>
+                            <span class="project-link">(private)</span>
+                        </div>
+                        <div class="project">
+                            <div class="project-header">
+                                <h3>Reality Changing Films</h3>
+                                <span class="project-category">Website</span>
+                            </div>
+                            <p class="project-description">A website for the company Reality Changing Films. Also has a custom CRM with UI and an application</p>
+                            <a href="https://reality-changing-films.vercel.app/" target="_blank" class="project-link">reality-changing-films.vercel.app</a>
+                        </div>
+                        <div class="project">
+                            <div class="project-header">
+                                <h3>Web Cookies</h3>
+                                <span class="project-category">Website</span>
+                            </div>
+                            <p class="project-description">Built a service for websites to operate according to GDPR and law 13</p>
+                            <a href="https://webcookies.co.il/" target="_blank" class="project-link">webcookies.co.il</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Check for saved theme or system preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initialTheme = savedTheme || (prefersDarkMode ? 'dark' : 'dark');
+
+        // Set initial theme
+        if (initialTheme === 'light') {
+            body.classList.add('light');
+            themeToggle.textContent = '☀️';
+        }
+
+        // Theme toggle event listener
+        themeToggle.addEventListener('click', () => {
+            const isLight = body.classList.contains('light');
+            if (isLight) {
+                body.classList.remove('light');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '🌙';
+            } else {
+                body.classList.add('light');
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '☀️';
+            }
+        });
+    </script>
 </body>
 </html>

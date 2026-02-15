@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Portfolio</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -535,15 +537,6 @@
                         </div>
                         <div class="project">
                             <div class="project-header">
-                                <h3>CloudConvert Lib</h3>
-                                <span class="project-category">Package</span>
-                            </div>
-                            <p class="project-description">A simplified system to use the CloudConvert API in Rust</p>
-                            <a href="https://crates.io/crates/simple_cloudconvert" target="_blank"
-                                class="project-link">crates.io/crates/simple_cloudconvert</a>
-                        </div>
-                        <div class="project">
-                            <div class="project-header">
                                 <h3>Israir Notifier</h3>
                                 <span class="project-category">Website</span>
                             </div>
@@ -580,6 +573,15 @@
                             <a href="https://webcookies.co.il/" target="_blank"
                                 class="project-link">webcookies.co.il</a>
                         </div>
+                        <div class="project">
+                            <div class="project-header">
+                                <h3>CloudConvert Lib</h3>
+                                <span class="project-category">Package</span>
+                            </div>
+                            <p class="project-description">A simplified system to use the CloudConvert API in Rust</p>
+                            <a href="https://crates.io/crates/simple_cloudconvert" target="_blank"
+                                class="project-link">crates.io/crates/simple_cloudconvert</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -589,19 +591,13 @@
     <script>
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
-
-        // Check for saved theme or system preference
         const savedTheme = localStorage.getItem('theme');
         const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const initialTheme = savedTheme || (prefersDarkMode ? 'dark' : 'dark');
-
-        // Set initial theme
         if (initialTheme === 'light') {
             body.classList.add('light');
             themeToggle.textContent = '☀️';
         }
-
-        // Theme toggle event listener
         themeToggle.addEventListener('click', () => {
             const isLight = body.classList.contains('light');
             if (isLight) {
